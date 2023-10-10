@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "nl.teamdiopside.convenientscaffolding.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BlockStatePropertiesMixin",
+    "ScaffoldingBlockItemMixin",
+    "ScaffoldingBlockMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
