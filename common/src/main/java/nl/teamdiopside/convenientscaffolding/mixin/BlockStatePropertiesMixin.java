@@ -2,6 +2,7 @@ package nl.teamdiopside.convenientscaffolding.mixin;
 
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import nl.teamdiopside.convenientscaffolding.Config;
 import nl.teamdiopside.convenientscaffolding.ConvenientScaffolding;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,6 +20,6 @@ public abstract class BlockStatePropertiesMixin {
 
     @Inject(method = "<clinit>", at = @At("RETURN"))
     private static void modifyMaxDistance(CallbackInfo ci) {
-        STABILITY_DISTANCE = IntegerProperty.create("distance", 0, ConvenientScaffolding.MAX_SCAFFOLDING_DISTANCE);
+        STABILITY_DISTANCE = IntegerProperty.create("distance", 0, Config.INSTANCE.maxScaffoldingDistance);
     }
 }

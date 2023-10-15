@@ -12,7 +12,11 @@
   "icon": "icon.png",
 
   "environment": "*",
-  "entrypoints": {},
+  "entrypoints": {
+    "modmenu": [
+      "nl.teamdiopside.convenientscaffolding.fabric.ModMenuImplementation"
+    ]
+  },
   "mixins": [
     "convenient_scaffolding.mixins.json",
     "convenient_scaffolding-common.mixins.json"

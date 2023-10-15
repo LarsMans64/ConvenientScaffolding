@@ -1,0 +1,7 @@
+{
+  "config.convenient_scaffolding.title": "Convenient Scaffolding Config",
+  "config.convenient_scaffolding.category_name": "Convenient Scaffolding Config",
+  "config.convenient_scaffolding.max_falling_speed": "Max Falling Speed",
+  "config.convenient_scaffolding.climbing_speed": "Climbing Speed",
+  "config.convenient_scaffolding.max_distance": "Max Building Distance"
+}

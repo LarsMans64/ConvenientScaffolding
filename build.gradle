@@ -39,9 +39,16 @@ allprojects {
         // See https://docs.gradle.org/current/userguide/declaring_repositories.html
         // for more information about repositories.
 
-        maven {
-            name 'Xander Maven'
-            url 'https://maven.isxander.dev/releases'
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = "Modrinth"
+                    url = "https://api.modrinth.com/maven"
+                }
+            }
+            filter {
+                includeGroup "maven.modrinth"
+            }
         }
     }
 

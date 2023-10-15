@@ -3,9 +3,7 @@ package nl.teamdiopside.convenientscaffolding.mixin;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ScaffoldingBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import nl.teamdiopside.convenientscaffolding.ConvenientScaffolding;
+import nl.teamdiopside.convenientscaffolding.Config;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Constant;
@@ -19,26 +17,22 @@ public abstract class ScaffoldingBlockMixin extends Block implements SimpleWater
     @Mutable
     @Shadow @Final public static int STABILITY_MAX_DISTANCE;
 
-//    @Mutable
-//    @Shadow @Final public static IntegerProperty DISTANCE;
-
     public ScaffoldingBlockMixin(Properties properties) {
         super(properties);
     }
 
     @Inject(method = "<init>", at = @At("RETURN"))
     private void modifyMaxDistance(Properties properties, CallbackInfo ci) {
-        STABILITY_MAX_DISTANCE = ConvenientScaffolding.MAX_SCAFFOLDING_DISTANCE;
-//        DISTANCE = IntegerProperty.create("distance", 0, ConvenientScaffolding.MAX_SCAFFOLDING_DISTANCE);
+        STABILITY_MAX_DISTANCE = Config.INSTANCE.maxScaffoldingDistance;
     }
 
     @ModifyConstant(method = "tick", constant = @Constant(intValue = 7))
     private int tick(int constant) {
-        return ConvenientScaffolding.MAX_SCAFFOLDING_DISTANCE;
+        return Config.INSTANCE.maxScaffoldingDistance;
     }
 
     @ModifyConstant(method = {"getDistance", "canSurvive"}, constant = @Constant(intValue = 7))
     private static int getDistance(int constant) {
-        return ConvenientScaffolding.MAX_SCAFFOLDING_DISTANCE;
+        return Config.INSTANCE.maxScaffoldingDistance;
     }
 }
